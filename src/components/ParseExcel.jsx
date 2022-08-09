@@ -45,14 +45,14 @@ const pdata = [
         accuracy: 91
     },
 ]
+let finalData = []
 
 export const ParseExcel = () => {
     const[fileName, setFileName] = useState(null);
-    // const [ finalArray, setFinalArray] = useState([{
-    //     productKey: null,
-    //     accuracy: null
-    // }]);
+
+    //getting user name from localstorage
     const [name, setName] = useLocalStorage("name", "");
+    
     
 
     const handleFile = async (e) => {
@@ -69,20 +69,26 @@ export const ParseExcel = () => {
             defval: ""
         });
         
+        for(let i = 1 ; i < jsonData.length; i++){
+            finalData.push({
+                productKey: jsonData[i][0],
+                accuracy: jsonData[i][1]
+            })
+        }
+        // console.log(finalData)
         
-        
-
         
     }
+    console.log(finalData)
+
 
 
     return (
     <div>
-        <h1>Parse excel bro</h1>
-            <p>
+            <h2>
                 UserName: <span>{name}</span>
-            </p>
-        
+            </h2>
+                    
             <p>
                 Filename:- <span>{fileName}</span>
                 

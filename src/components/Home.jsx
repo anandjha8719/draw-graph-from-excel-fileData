@@ -1,18 +1,17 @@
-import { useState, useEffect } from "react";
+
 import { useLocalStorage } from "../useLocalStorage";
+import {useNavigate} from 'react-router-dom'
+
+
 
 export const Home = () => {
-//   const [name, setName] = useState(() => {
-//     getting stored value
-//     const saved = localStorage.getItem("name");
-//     const initialValue = JSON.parse(saved);
-//     return initialValue || "";
-//   });
 
-//   useEffect(() => {
-//     // storing input name
-//     localStorage.setItem("name", JSON.stringify(name));
-//   }, [name]);
+const navigate = useNavigate();
+const navigateToGraphPage = () => {
+    
+    navigate('/parse-excel');
+  };
+
 const [name, setName] = useLocalStorage("name", "");
 
   return (
@@ -27,6 +26,7 @@ const [name, setName] = useLocalStorage("name", "");
         />
         <input type="submit" value="Submit"></input>
         </form>
+        <button onClick={navigateToGraphPage}> to graph page</button>
     </div>
     
   );
