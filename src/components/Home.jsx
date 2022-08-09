@@ -16,17 +16,19 @@ const [name, setName] = useLocalStorage("name", "");
 
   return (
     <div>
-        <form>
+        <h2>Enter Your name</h2>
+        <form className="form">
         <input
+            className="input-box"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Full name"
             aria-label="fullname"
         />
-        <input type="submit" value="Submit"></input>
+        <input className="submit-button" type="submit" value="Submit"></input>
         </form>
-        <button onClick={navigateToGraphPage}> to graph page</button>
+        <button onClick={navigateToGraphPage} className="other-page" > to graph page</button>
     </div>
     
   );

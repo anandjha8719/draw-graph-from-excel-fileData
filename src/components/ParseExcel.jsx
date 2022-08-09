@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import * as XLSX from 'xlsx'
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis } from "recharts";
 import { useLocalStorage } from "../useLocalStorage";
-
 const pdata = [
     {
         productKey: 1,
