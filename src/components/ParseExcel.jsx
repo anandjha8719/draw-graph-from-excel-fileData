@@ -44,10 +44,12 @@ const pdata = [
         accuracy: 91
     },
 ]
-let finalData = []
+
 
 export const ParseExcel = () => {
+    let finalData = []
     const[fileName, setFileName] = useState(null);
+    const[datag, setDatag] = useState([]);
 
     //getting user name from localstorage
     const [name, setName] = useLocalStorage("name", "");
@@ -74,7 +76,7 @@ export const ParseExcel = () => {
                 accuracy: jsonData[i][1]
             })
         }
-        // console.log(finalData)
+        setDatag(finalData);
         
         
     }
@@ -95,7 +97,7 @@ export const ParseExcel = () => {
         <input type="file" onChange={(e) => handleFile(e)} />
         <div>
         <ResponsiveContainer width="80%" aspect={3}>
-            <LineChart data={pdata}>
+            <LineChart data={datag}>
                 <XAxis dataKey="productKey" interval={'preserveStartEnd'}/>
                 <YAxis dataKey="accuracy" interval={'preserveStartEnd'}/>
                 <Line dataKey="accuracy" />
